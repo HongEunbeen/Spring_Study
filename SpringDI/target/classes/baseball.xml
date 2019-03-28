@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id = "player1" class = "com.test.sport.Player">
+		<constructor-arg value = "박찬호"/>
+		<constructor-arg value = "44"/>
+		<constructor-arg>
+			<list>
+				<value>4번타자</value>
+				<value>투수</value>
+				<value>포수</value>
+				<value>1루수</value>
+			</list>
+		</constructor-arg>
+		<property name="height" value = "190"/>
+		<property name="weight" value = "100"/>
+	</bean>
+
+</beans>

@@ -8,7 +8,7 @@
 <head>
 	<title>Home</title>
 	<style type = "text/css">
-		body{
+		body {
 			background-color : lightblue;
 		}
 	</style>
@@ -17,7 +17,6 @@
 	<h1>
 		미림여자 정보과학고등학교
 	</h1>
-	
 	<P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>

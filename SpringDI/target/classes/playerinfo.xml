@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id = "player2" class = "com.test.sport.Player">
+		<constructor-arg>
+			<value>이대호</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>33</value>
+		</constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>투수</value>
+				<value>포수</value>
+				<value>외야수</value>
+			</list>
+		</constructor-arg>
+		<property name="weight" value = "120"/>
+		<property name="height" value = "190"/>
+	</bean>
+	<bean id = "playerinfo2" class = "com.test.sport.PlayerInfo">
+		<constructor-arg>
+			<ref bean = "player2"/>
+		</constructor-arg>
+	</bean>
+</beans>
