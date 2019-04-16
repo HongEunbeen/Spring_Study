@@ -7,7 +7,7 @@
 	<bean id = "adidas" class = "com.test.anotation.Adidas"/>
 	<bean id = "nike" class = "com.test.anotation.Nike"/>
 	<bean id = "me" class = "com.test.anotation.User">
-		<property name="shoes" ref = "nike"></property>
+		<property name="shoes" ref = "adidas"></property>
 	</bean>
 
 </beans>
