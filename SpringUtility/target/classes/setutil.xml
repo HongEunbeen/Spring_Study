@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="setdata1" class="com.test.utility.Collection">
+	<property name="address">
+		<set value-type="java.lang.String">
+			<value>서울시 관악구 신림동</value>
+			<value>서울시 용산구 이태원동</value>
+			<value>서울시 강남구 신사동</value>
+		</set>
+	</property>
+</bean>
+<bean id = "mapdata1" class = "com.test.utility.CollectionMap">
+	<property name = "mapdinner">
+		<map>
+			<entry>
+				<key>
+					<value>쭈꾸미</value>
+				</key>
+				<value>북한강쭈꾸미</value>
+			</entry>
+			<entry>
+				<key>
+					<value>삼겹살</value>
+				</key>
+				<value>잠수교집</value>
+			</entry>
+		</map>
+	</property>
+</bean>
+
+</beans>
