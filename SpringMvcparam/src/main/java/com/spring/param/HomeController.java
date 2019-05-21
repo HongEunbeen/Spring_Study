@@ -1,4 +1,4 @@
-package com.spring.mvc3;
+package com.spring.param;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,42 +39,50 @@ public class HomeController {
 		
 		return "home";
 	}
-	//*********************HttpServletRequest 이용하기
-	@RequestMapping("/member/test1")
-	public String test(HttpServletRequest request, Model model) {
-		String name = request.getParameter("name");
-		String id = request.getParameter("id");
-		model.addAttribute("name", name);
-		model.addAttribute("id", id);
-		return "member/test1";
-	}
-	//**************RequestParam을 이용하기
-	@RequestMapping("/member/join")
-	public String join(@RequestParam("id") String id, @RequestParam("name") String name, Model model) {
+	
+	@RequestMapping("member/check")
+	public String check(@RequestParam("id") String id,
+						@RequestParam("name") String name,
+						Model model) {
 		model.addAttribute("id", id);
 		model.addAttribute("name", name);
-		return "member/join";
-	}
-	@RequestMapping("/member/person")
-	public String personinfo(@RequestParam("name") String name,
-								@RequestParam("id") String id,
-								@RequestParam("address") String address,
-								@RequestParam("email") String email,
-								Model model) {
-		Person person = new Person();
-		person.setName(name);
-		person.setId(id);
-		person.setAddress(address);
-		person.setEmail(email);
-		
-		model.addAttribute("personinfo", person);
-		
-		return "member/personinfo";
-	}
-	@RequestMapping("/member/person2")
-	public String personinfo2(Person p) {
-		
-		return "member/personinfo2";
+		return "member/check";
 	}
 	
+	@RequestMapping("/page/{var}")
+	public String page(@PathVariable String var) {
+		String viewpage = "";
+		if(var.equals("one")) {
+			viewpage = "/page/page1";
+		}else if(var.equals("two")){
+			viewpage = "/page/page2";
+		}
+		return viewpage;
+	}
+	@RequestMapping("/pathvariable")
+	public String path(String key1, String key2, Model model) {
+		System.out.println("key1:" + key1);
+		System.out.println("key2:" + key2);
+		
+		model.addAttribute("key1" + key1);
+		model.addAttribute("key2" + key2);
+		
+		return "keypage";
+	}
+	@RequestMapping("pathvariable1/{var1}/{var2}")
+	public String path1(@PathVariable String var1,
+						@PathVariable String var2,
+						Model model) {
+		return "keypage";
+	}
+	
+	@RequestMapping("/input")
+	public String input(HttpServletRequest request, Model model) {
+		String name = request.getParameter("name");
+		String id = request.getParameter("id");
+		model.addAttribute("para1", name);
+		model.addAttribute("para2", id);
+		
+		return "inputform";
+	}
 }
